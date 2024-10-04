@@ -1,0 +1,17 @@
+Django’s auth app looks for templates within a templates/registration directory, but allauth
+prefers they be located within a templates/account directory.
+
+Templates/account was created and then the existing login.html and signup.html
+templates were copied into it.
+
+It’s easy to add an "s" onto "account" here by accident, but don’t or you’ll get an error. The correct
+directory is templates/account/
+
+the registration directory was then deleted.
+
+The last step is to update the URL links within templates/_base.html to use django-allauth’s URL names rather than Django’s. We do this by adding an "account_" prefix so Django’s "logout" will now be "account_logout", 'login' will be "account_login", and signup will be "account_signup".
+________________________________________________________________________________________________________
+
+Rather than directly log us out, django-allauth has an intermediary “Log Out” page which we can customize to match the rest of our project.
+
+We update the default Log Out template by creating a templates/account/logout.html file to override it.

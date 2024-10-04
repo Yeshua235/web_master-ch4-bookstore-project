@@ -20,7 +20,7 @@
         <div class="container-fluid">
                 <a class="navbar-brand" href="#">Bookstore</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></ span>
+                    <span class="navbar-toggler-icon"> </span>
                 </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -30,18 +30,18 @@
                     </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <form method="post" action="{% url 'logout' %}">
+                        <form method="post" action="{% url 'account_logout' %}">
                             {% csrf_token %}
                             <button class="btn btn-success" type="submit">Log Out</button>
                         </form>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                 {% endif %}
                 </ul>

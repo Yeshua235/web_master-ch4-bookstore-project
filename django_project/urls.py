@@ -20,10 +20,13 @@ from django.urls import path, include
 
 urlpatterns = [
     # Django admin
+
     path("admin/", admin.site.urls),
     # User management
-    path("accounts/", include("django.contrib.auth.urls")),
-    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("allauth.urls")), # allauth urls
+    # path("accounts/", include("django.contrib.auth.urls")),
+    # path("accounts/", include("accounts.urls")), ## This makes accounts/urls.py and accounts/views.py useless as it was used only for the custom signup page, which is no longer needed.
+
     # Local apps
     path("", include("pages.urls")),
 ]
