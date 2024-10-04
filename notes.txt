@@ -15,3 +15,7 @@ ________________________________________________________________________________
 Rather than directly log us out, django-allauth has an intermediary “Log Out” page which we can customize to match the rest of our project.
 
 We update the default Log Out template by creating a templates/account/logout.html file to override it.
+
+________________________________________________________________________________________________________
+
+Even though we are now using an environment variable the actual value of SECRET_KEY is still visible in our source code as it’s merely moved to docker-compose.yml which is tracked by Git. This is true! However, when we configure our website for production, we will create a separate file for production purposes – docker-compose-production.yml – and immediately add it to our .gitignore file so it is not tracked in the source code.
